@@ -1,0 +1,18 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'app_static/error.css' %}">
+
+<div id="center">
+  <div id="main">
+    <h1>
+      Oh no, something went wrong!
+    </h1>
+    <h1>
+    (Error: {{ error_name }})
+    </h1>
+    <div><img src="https://i.imgur.com/TdZ8nVv.jpg"></div>
+    <a href="{{ go_back_to }}"> <button class="button-mini">
+      Bring me back
+    </button> </a>
+  </div>
+</div>

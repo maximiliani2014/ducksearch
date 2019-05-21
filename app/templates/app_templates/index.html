@@ -1,0 +1,60 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'app_static/index.css' %}">
+
+<body>
+  <div id="main">
+    <h1> Welcome to DuckSearch</h1>
+    <h3> Search for ducks and more! </h3>
+
+    <div id="search_bar">
+      <form action="{{ search_action }}" method="post" autocomplete="off" id="simple_search_form">
+        {{ search_form }}
+        <input type="submit" class="invisible">
+      </form>
+    </div>
+
+    <div id="buttons_div">
+      <button class="form_button" type="button" id="create_account_button">
+        Create Account
+      </button>
+      <button class="form_button" type="button" id="login_button">
+        Login
+      </button>
+      <form action="{{ index }}" method="post" autocomplete="off" id="form_element">
+        {{ form }}
+      </form>
+      <button class="form_button" type="button" id="back_button">
+        <a href="\">
+          Back
+        </a>
+      </button>
+    </div>
+
+
+  </div>
+
+  {% block javascript %}
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+  <script>
+    $(".form_button").on('click', function () {
+      if (this.id == "create_account_button") {
+        var form = "create_form";
+      } else {
+        var form = "login_form";
+      }
+      $.ajax({
+        url: '/ajax/display_form/',
+        data: {
+          'form': form,
+          'enable_buttons': 0
+        },
+        dataType: 'json',
+        success: function (data) {
+          document.getElementById("form_element").innerHTML = data.form + "<button class=\"sb_button\" id=\"" + this.id + "_submit\"> Submit </button>";
+        }
+      });
+    });
+  </script>
+  {% endblock %}
+</body>

@@ -1,0 +1,67 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'app_static/edit_account.css' %}">
+
+<body>
+  <div id="main">
+    <div id="header_div">
+      <h1> My Acount</h1>
+      <h3> Username: {{username}} </h3>
+      <h3> Interests: </h3>
+      {% for interest in interests %}
+      <p> {{ interest }} </p>
+      {% endfor %}
+
+      <button type="button" id="back_to_search">
+        <a href="\search_page">
+          Back to DuckSearch
+        </a>
+      </button>
+      <button type="button" id="edit_interests" class="form_button">
+        Edit Interests
+      </button>
+      <button type="button" id="change_password" class="form_button">
+        Change Password
+      </button>
+      <button type="button" id="back_to_search">
+        <a href="\">
+          Logout
+        </a>
+      </button>
+      <button type="button" id="delete_account" class="form_button">
+        Delete Account
+      </button>
+
+      <div id="form_div">
+        <form action="{{ form_action }}" method="post" autocomplete="off" id="form_element">
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  {% block javascript %}
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+  <script>
+    $(".form_button").on('click', function () {
+      if (this.id == "edit_interests") {
+        var form = "edit_interests_form";
+      } else if (this.id == "change_password") {
+        var form = "change_password_form";
+      } else {
+        var form = "delete_account_form";
+      }
+      $.ajax({
+        url: '/ajax/display_form/',
+        data: {
+          'form': form
+        },
+        dataType: 'json',
+        success: function (data) {
+          document.getElementById("form_element").innerHTML = data.form + "<button class=\"sb_button\" id=\"" + this.id + "_submit\"> Submit </button>";
+        }
+      });
+    });
+  </script>
+  {% endblock %}
+</body>

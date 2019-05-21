@@ -1,0 +1,49 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'app_static/search_results.css' %}">
+
+<body>
+  <div id="main">
+    <div id="header_div">
+      <h1> Ducksearch Complete!</h1>
+
+      <div id="searchbar_div">
+        <form action={{form_action}} method="post" autocomplete="off" id="form_element">
+          {{ form }}
+          <input type="submit" id="submit_search" value="Search">
+        </form>
+      </div>
+
+      <div id="edit_account">
+        {% if disable_edit_account == 0 %}
+        <button id="edit_account_button" type="button">
+          <a href="\edit_account">
+            Edit Account Info
+          </a>
+        </button>
+        {% endif %}
+        <button id="index_button" type="button">
+          <a href="\">
+            Back to Homepage
+          </a>
+        </button>
+      </div>
+    </div>
+    <hr>
+    <div id = "search_results">
+      {% for entry in data%}
+      <div class = "search_result">
+        <div><img src={{entry.2}}></div>
+        <div class = "non_image">
+          <h3 class="title">{{ entry.0 }}</h3>
+          {% if entry.3 != 0 %}
+          <p class="relevance"> Relevance: <b>{{ entry.3 }}</b> </p>
+          {% endif %}
+          <p class="snippet"> {{ entry.1 }} </p>
+          <a href={{entry.4}} class="link"> {{entry.4}} </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>

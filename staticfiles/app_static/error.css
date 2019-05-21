@@ -1,0 +1,40 @@
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+  text-align: center;
+  background-image: url("https://kids.nationalgeographic.com/content/dam/kids/photos/animals/Birds/H-P/mallard-male-standing.ngsversion.1396906974359.jpg");
+}
+
+#main {
+  width: 100%;
+  margin: auto;
+}
+
+.invisible {
+  display: none;
+}
+
+.plaintext_field {
+  border-radius: 20px;
+  width: 30%;
+  height: 7%;
+  padding-left: 10px;
+}
+
+.plaintext_field:focus, button:focus{
+    outline: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+button {
+  padding: 5px;
+  border-radius: 20px;
+  background-color: white;
+}

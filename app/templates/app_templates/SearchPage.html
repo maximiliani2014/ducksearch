@@ -1,0 +1,25 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'app_static/search_page.css' %}">
+
+<body>
+  <div id="main">
+
+    <div class="header_container">
+      <h1> Welcome to DuckSearch, {{ username }} !</h1>
+    </div>
+
+    <form action="\search" method="post" autocomplete="off" id="form_element">
+      {{ form }}
+      <input type="submit" name="submit_search" value="Search">
+    </form>
+
+    <div id="edit_account">
+      <button id="edit_account_button" type="button">
+        <a href="\edit_account">
+          Edit Account Info
+        </a>
+      </button>
+    </div>
+  </div>
+</body>

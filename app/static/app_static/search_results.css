@@ -1,0 +1,100 @@
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+  background-size: 100%, 100%;
+}
+
+#main {
+  width: 100%;
+}
+
+#header_div {
+  margin-left: 30px;
+}
+
+.header_container {
+  background-color: white;
+  border-radius: 20px;
+  width: 50%;
+  margin: 0 auto;
+  border: groove;
+  margin-bottom: 10px;
+}
+
+.invisible {
+  display: none;
+}
+
+form {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+}
+
+.plaintext_field {
+  border-radius: 20px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding: 5px;
+  padding-left: 10px;
+}
+
+.plaintext_field:focus, button:focus{
+    outline: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+button, input {
+  padding: 5px;
+  border-radius: 20px;
+  background-color: white;
+}
+
+#submit_search {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+#search_results {
+  text-align: center;
+}
+
+.search_result {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border: groove;
+}
+
+.non_image {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  padding-left: 20px;
+}
+
+.title, .relevance, .snippet, .link {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin: auto auto;
+}
+
+img {
+  height: 200px;
+  width: 200px;
+  border-right: solid gray;
+}
+
+hr {
+  margin-top: 20px;
+}
