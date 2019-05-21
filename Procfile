@@ -1,1 +1,1 @@
-web: gunicorn custom_search.wsgi
+web: gunicorn customsearch.wsgi
