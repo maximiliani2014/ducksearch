@@ -3,3 +3,4 @@ django-heroku
 gunicorn
 postgres
 psycopg2-binary
+requests
