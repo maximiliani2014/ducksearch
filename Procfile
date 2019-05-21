@@ -1,1 +1,1 @@
-web: gunicorn slackers_project.wsgi
+web: gunicorn custom_search.wsgi
