@@ -47,7 +47,7 @@ def index(request):
                                   })
                 u = User.objects.get(username=form.cleaned_data['username'])
                 #If password is correct log the user in
-                if hashers.check_password(form.cleaned_data['password'], u.password):
+                if form.cleaned_data['password'] == u.password:
                     request.session['user'] = u.id
                     return HttpResponseRedirect("/search_page")
                 #If password is incorrect redirect to error page
